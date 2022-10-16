@@ -1,16 +1,12 @@
 {include file="templates/header.tpl" }
-<form action='modificar/{$id}'>
+<form action='modificar/{$id}' method="POST">
   <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <label  class="form-label">Nombre Del libro</label>
+    <input type="Text" class="form-control" name="nombre">
   </div>
   <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1">
-  </div>
-  <div class="mb-3 form-check">
-    <label for="exampleInputPassword1" class="form-label">Password</label>
-     <input type="password" class="form-control" id="exampleInputPassword1">
+    <label  class="form-label">Precio</label>
+    <input type="Text" class="form-control" name="precio">
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>

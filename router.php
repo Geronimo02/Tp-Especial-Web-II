@@ -39,10 +39,6 @@ switch ($params[0]) {
         $cartcontroller = new CartController();
         $cartcontroller->showcart();
         break;    
-    case 'add':
-        $libController = new libController();
-        $libController->Addlib();
-        break;
     case 'delete':
         // obtengo el parametro de la acción
         $cartcontroller = new CartController();
@@ -53,10 +49,13 @@ switch ($params[0]) {
         $cartController = new CartController();
         $cartController->AgregaralCarro($params[1]);
         break;
-    case 'modify':
+    case'form':
         $libController= new libController();
         $id = $params[1];
-        $libController->Modify($id);
+        $libController->showform($id);
+    case 'modify':
+        $libController= new libController();
+        $libController->Modify($params[1]);
         break;
     default:
         echo('404 Page not found');

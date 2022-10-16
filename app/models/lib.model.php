@@ -42,10 +42,10 @@ class libModel{
         $libro = $query->fetch(PDO::FETCH_OBJ); // devuelve un objeto
         return $libro;
     }
-    public function updatelibro($nombre,$imagen,$precio){
+    public function updatelibro($nombre,$precio,$id){
         //Metodo encargado de modificar un producto
-        $query = $this->db->prepare("UPDATE  libros SET imagen = ? , nombre = ? precio = ?, WHERE id_libro= ?");
-        $query->execute([$nombre,$imagen,$precio]);
+        $query = $this->db->prepare("UPDATE  libros SET nombre = ?, precio = ? WHERE id_libro= ?");
+        $query->execute([$nombre,$precio,$id]);
     }
 }
 

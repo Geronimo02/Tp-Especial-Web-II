@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2022-10-14 20:38:27
+/* Smarty version 4.2.1, created on 2022-10-16 19:06:20
   from 'C:\xampp\htdocs\TP\tp\templates\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_6349aca3cce5c7_70279676',
+  'unifunc' => 'content_634c3a0c28b267_82699831',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'd1ca310d7dc4cc1e31621d3823916022a3dacbed' => 
     array (
       0 => 'C:\\xampp\\htdocs\\TP\\tp\\templates\\header.tpl',
-      1 => 1665772608,
+      1 => 1665939976,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6349aca3cce5c7_70279676 (Smarty_Internal_Template $_smarty_tpl) {
+function content_634c3a0c28b267_82699831 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!doctype html>
 <html lang="en">
@@ -29,6 +29,7 @@ function content_6349aca3cce5c7_70279676 (Smarty_Internal_Template $_smarty_tpl)
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap demo</title>
+    <link rel="stylesheet" href="/style/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
   </head>
   <body>
@@ -57,6 +58,5 @@ function content_6349aca3cce5c7_70279676 (Smarty_Internal_Template $_smarty_tpl)
      </nav>
     </header>      
     <div class="container">
-        <br></br>
         <div class="row"><?php }
 }

@@ -35,17 +35,18 @@ require_once 'app/helper/auth.helper.php';
       $this->view->showhome();
 
       }
+
+      function showform($id){
+         $this->view->showForm($id);
+      }
+      
       public function Modify($id){
          //Metodo encargado de modificar x producto
-         //$user = $this->userHelper->checkLoggedIn();
-         //if($user){
-         //    $nombre = $_POST['nombre'];
-         //    $imagen = $_POST['imagen'];
-         //    $precio = $_POST['precio'];
-         //    $this->productoModel->updateProducto($nombre,$imagen,$precio);
-         //    header("Location: " . BASE_URL. "adminform" . $id );
-         //}
-         $this->view->showForm($id);
+         $nombre=$_POST['nombre'];
+         $precio=$_POST['precio'];
+         $this->model->updatelibro($nombre,$precio,$id);
+      
+       
       }
          
     }
