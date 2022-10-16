@@ -20,10 +20,9 @@ require_once 'app/helper/auth.helper.php';
      function Addlib(){
         $imagen=$_REQUEST['imagen'];
         $nombre=$_REQUEST['nombre'];
-        $categoria=$_REQUEST['categoria'];
         $precio=$_REQUEST['precio'];
 
-        $id= $this->model->insertlist($imagen,$nombre,$categoria,$precio);
+        $id= $this->model->insertlist($imagen,$nombre,$precio);
         header("location:". BASE_URL);
      }
 

@@ -32,8 +32,6 @@ class libModel{
     public function insertlist($imagen,$nombre,$Precio) {
         $query = $this->db->prepare ("INSERT INTO libros(imagen, nombre, Precio) VALUES ('?','?','?')"); //
         $query->execute([$imagen, $nombre, $Precio ,false]);
-
-        return $this->db->lastInsertId();
     }
 
     public function getlibro($id){
