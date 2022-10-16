@@ -21,7 +21,6 @@ class LibView{
         $this->smarty->display('cart.tpl');
 
     }
-
     function showForm($id){ 
         $this->smarty->assign('id',$id);
         $this ->smarty->display('adminform.tpl');

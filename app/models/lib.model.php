@@ -25,15 +25,8 @@ class libModel{
 
 
      }
-     
-     /**
-     * Inserta una tarea en la base de datos.
-     */
-    public function insertlist($imagen,$nombre,$Precio) {
-        $query = $this->db->prepare ("INSERT INTO libros(imagen, nombre, Precio) VALUES ('?','?','?')"); //
-        $query->execute([$imagen, $nombre, $Precio ,false]);
-    }
 
+        //agregar los libros al carrito
     public function getlibro($id){
         $query = $this->db->prepare("SELECT * FROM libros WHERE id_libro =?");
         $query->execute([$id]);  
