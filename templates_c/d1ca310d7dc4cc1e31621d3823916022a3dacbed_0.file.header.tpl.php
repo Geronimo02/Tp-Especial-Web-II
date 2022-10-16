@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2022-10-16 19:30:56
+/* Smarty version 4.2.1, created on 2022-10-16 20:06:29
   from 'C:\xampp\htdocs\TP\tp\templates\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_634c3fd037c4d0_27317916',
+  'unifunc' => 'content_634c4825175b93_01486839',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'd1ca310d7dc4cc1e31621d3823916022a3dacbed' => 
     array (
       0 => 'C:\\xampp\\htdocs\\TP\\tp\\templates\\header.tpl',
-      1 => 1665941292,
+      1 => 1665943579,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_634c3fd037c4d0_27317916 (Smarty_Internal_Template $_smarty_tpl) {
+function content_634c4825175b93_01486839 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!doctype html>
 <html lang="en">
@@ -29,7 +29,6 @@ function content_634c3fd037c4d0_27317916 (Smarty_Internal_Template $_smarty_tpl)
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Libroteca</title>
-    <link rel="stylesheet" href="/style/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
   </head>
   <body>
