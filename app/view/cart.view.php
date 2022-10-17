@@ -9,6 +9,7 @@ class CartView{
         $this->smarty->assign('user', $user);
     }
     function showcart($libros){
+        $this->smarty->assign('basehref', BASE_URL);
         $this->smarty->assign('libros', $libros);
         $this->smarty->display('cart.tpl');
 

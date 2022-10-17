@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2022-10-16 19:52:39
+/* Smarty version 4.2.1, created on 2022-10-17 20:10:44
   from 'C:\xampp\htdocs\TP\tp\templates\list.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_634c44e7752505_71145765',
+  'unifunc' => 'content_634d9aa4bb6301_93209811',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '818134adc70f4db229c538c2abc51b2bd8df42ba' => 
     array (
       0 => 'C:\\xampp\\htdocs\\TP\\tp\\templates\\list.tpl',
-      1 => 1665942757,
+      1 => 1666030243,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_634c44e7752505_71145765 (Smarty_Internal_Template $_smarty_tpl) {
+function content_634d9aa4bb6301_93209811 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:templates/header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['libros']->value, 'libro');
 $_smarty_tpl->tpl_vars['libro']->do_else = true;
@@ -36,13 +36,15 @@ $_smarty_tpl->tpl_vars['libro']->do_else = false;
         <div class="card-body">
             <h4 class="card-title"><?php echo $_smarty_tpl->tpl_vars['libro']->value->nombre;?>
 </h4>
+            <p class="card-title" > $<?php echo $_smarty_tpl->tpl_vars['libro']->value->precio;?>
+</p>
             <?php if ((isset($_SESSION['IS_LOGGED']))) {?>
             <a type="submit"class="btn btn-primary" href="Agregaralcarrito/<?php echo $_smarty_tpl->tpl_vars['libro']->value->id_libro;?>
 " >Agregar </a>
-        <?php }?>
-        <?php if ((isset($_SESSION['IS_ADMIN']))) {?>
-        <a class="btn btn-primary" href="form/<?php echo $_smarty_tpl->tpl_vars['libro']->value->id_libro;?>
+            <?php if (($_SESSION['IS_ADMIN'])) {?>
+            <a class="btn btn-primary" href="form/<?php echo $_smarty_tpl->tpl_vars['libro']->value->id_libro;?>
 ">Modificar</a>
+            <?php }?>
         <?php }?>
         </div>
     </div>  

@@ -9,19 +9,22 @@ class LibView{
     }
 
     function Showlib($libros){
+        $this->smarty->assign('basehref', BASE_URL);
         $this->smarty->assign('libros',$libros);
         $this->smarty->display('list.tpl');
     }
     function Showhome(){
+        $this->smarty->assign('basehref', BASE_URL);
         $this ->smarty->display('home.tpl');
 
     }
     function showcart(){
-        
+        $this->smarty->assign('basehref', BASE_URL);
         $this->smarty->display('cart.tpl');
 
     }
     function showForm($id){ 
+        $this->smarty->assign('basehref', BASE_URL);
         $this->smarty->assign('id',$id);
         $this ->smarty->display('adminform.tpl');
         

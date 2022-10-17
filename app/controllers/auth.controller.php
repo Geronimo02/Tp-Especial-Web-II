@@ -5,7 +5,7 @@
 class AuthController {
     private $model;
     private $view;
-    private $Helper;
+    private $helper;
 
     public function __construct() {
         $this->helper = new AuthHelper();

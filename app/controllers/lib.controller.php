@@ -33,10 +33,12 @@ require_once 'app/helper/auth.helper.php';
       
       public function Modify($id){
          //Metodo encargado de modificar x producto
+         if((isset ($_POST))&&(!empty ($_POST))){
          $nombre=$_POST['nombre'];
          $precio=$_POST['precio'];
          $this->model->updatelibro($nombre,$precio,$id);
-      
+         header("Location: " . BASE_URL . 'list');
+         }
        
       }
          
