@@ -16,6 +16,7 @@ require_once 'app/helper/auth.helper.php';
 
      
       function showcart(){
+        $this -> helper->checkLoggedIn();
         $libros = $this->model->getlibros();
         $this->view->showcart($libros);
 
