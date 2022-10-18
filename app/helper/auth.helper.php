@@ -4,7 +4,7 @@ class AuthHelper {
     public function __construct()
     {
         session_start();
-        
+  
     }
      /**
      * Verifica que el user este logueado y si no lo está

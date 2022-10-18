@@ -20,6 +20,7 @@ require_once 'app/helper/auth.helper.php';
      }
    //añadir libros al carrito    
    function getlibro($id){
+      $this -> helper->checkLoggedIn();
       return $this->model->getLibro($id);
       }   
 
@@ -28,10 +29,12 @@ require_once 'app/helper/auth.helper.php';
 
       }
       function showform($id){
+         $this -> helper->checkLoggedIn();
          $this->view->showForm($id);
       }
       
       public function Modify($id){
+         $this -> helper->checkLoggedIn();
          //Metodo encargado de modificar x producto
          if((isset ($_POST))&&(!empty ($_POST))){
          $nombre=$_POST['nombre'];

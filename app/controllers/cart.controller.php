@@ -6,7 +6,8 @@ require_once 'app/helper/auth.helper.php';
     class CartController {
      private $model;
      private $view;  
-     
+     private $helper;
+
      public function __construct(){
          $this->helper = new AuthHelper();  
          $this->model = new CartModel();
@@ -20,6 +21,7 @@ require_once 'app/helper/auth.helper.php';
 
       }
       function AgregaralCarro($id){
+        $this -> helper->checkLoggedIn();
        $libcontroller= new libController(); 
        $libro = $libcontroller-> getlibro($id);
        $this->model->insertbook($libro);
@@ -28,7 +30,6 @@ require_once 'app/helper/auth.helper.php';
 
       function deletelib($id){
         $this->model->deletebookById($id);
-
         header("location:". BASE_URL. 'cart');
      }
   
