@@ -2,7 +2,7 @@
 require_once './app/models/bookModel.php';
 require_once './app/view/ApiView.php';
 
-class bookscontroller{
+class booksController{
     private $model;
     private $view;
     private $data;
@@ -10,8 +10,9 @@ class bookscontroller{
     public function __construct(){
         $this->model = new Booksmodel();
         $this->view = new  ApiBooksview();
+        $this->data = file_get_contents("php://input"); 
     }
-    private function getData() {
+     function getData() {
         return json_decode($this->data);
     }
     public function Showbooks() {
@@ -22,25 +23,34 @@ class bookscontroller{
     public function getbook ($params = null) {
         //obtengo la id del arreglo de parametro
         $id = $params [':ID'];
-        $libros = $this ->model ->getbooks($id);
+        $libros = $this ->model ->getbook($id);
         // si no existe devolver 404 
         if ($libros)
             $this-> view->response($libros);
             else
             $this-> view->response('el libro ingresado no se encuentra disponible', 404);
         }
-    //     public function modify($params = null){
-    //         $id = $params [':ID'];
-    //         $libros = $this ->model ->getbooks($id);
 
-    //         if ($libros){
-    //             $body = $this->getData();
-    //         }
-    //         else{
-    //             $id = $this->model->updatebook($nombre, $precio);
-    //             $libros= $this ->model ->getbooks($id);
-    //             $this->view->response($libros,201);
-    //     }
-    // }
+        public function deletebook($params = null) {
+            $id = $params[':ID'];
+            $libros = $this->model->getbook($id);
+            if ($libros) {
+                $this->model->delete($id);
+                $this->view->response($libros);
+            } else 
+                $this->view->response("el libro con el id=$id no existe", 404);
+        }
+        public function insertbook($params = null){
+            $libros = $this->getData();
+
+            if ( empty($libros->id_libro)|| empty($libros->imagen) || empty($libros->nombre) || empty($libros->precio)) {
+                $this->view->response("Complete los datos", 400);
+            }
+             else{
+                $id = $this->model->insertBook($libros->id_libro,$libros->imagen,$libros->nombre, $libros->precio);
+                 $libros= $this ->model ->getbook($id);
+                 $this->view->response($libros,201);
+         }
+     }
 }
 ?>
