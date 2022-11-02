@@ -29,8 +29,18 @@ class bookscontroller{
             else
             $this-> view->response('el libro ingresado no se encuentra disponible', 404);
         }
-        
+    //     public function modify($params = null){
+    //         $id = $params [':ID'];
+    //         $libros = $this ->model ->getbooks($id);
 
+    //         if ($libros){
+    //             $body = $this->getData();
+    //         }
+    //         else{
+    //             $id = $this->model->updatebook($nombre, $precio);
+    //             $libros= $this ->model ->getbooks($id);
+    //             $this->view->response($libros,201);
+    //     }
+    // }
 }
-
 ?>

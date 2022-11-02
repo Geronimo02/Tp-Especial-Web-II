@@ -21,10 +21,7 @@ class Booksmodel{
         $list = $query->fetchAll(PDO::FETCH_OBJ); // devuelve un arreglo de objetos
         
         return $list;
-
-
      }
-
         //agregar los libros al carrito
     public function getbooks($id){
         $query = $this->db->prepare("SELECT * FROM libros WHERE id_libro =?");
