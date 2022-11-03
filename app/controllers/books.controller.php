@@ -12,7 +12,7 @@ class booksController{
         $this->view = new  ApiBooksview();
         $this->data = file_get_contents("php://input"); 
     }
-     function getData() {
+     private function getData() {
         return json_decode($this->data);
     }
     public function Showbooks() {
@@ -51,6 +51,18 @@ class booksController{
                  $libros= $this ->model ->getbook($id);
                  $this->view->response($libros,201);
          }
+        }
+
+         public function UpdateBook($params= null){
+            $id = $params [':ID'];
+            $libros= $this ->model ->getbook($id);
+            if($libros){
+                $this ->model ->updateBook($id,$libros->id_libro,$libros->imagen,$libros->nombre,$libros->precio);
+                $this->view->response("el libro se modifico con exito", 200);
+            }else{
+                $this->view->response("el libro con la id=$id no existe",404);
+            }
+         }
      }
-}
+
 ?>

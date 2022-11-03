@@ -25,7 +25,7 @@ class Booksmodel{
 
      public function insertBook($id_libro,$imagen,$nombre,$precio) {
         $query = $this->db->prepare("INSERT INTO libros (id_libro, imagen ,nombre, precio) VALUES ('?,?,?,?')");
-        $query->execute([$id_libro,$imagen,$nombre,$precio]);
+        $query->execute([$id_libro,$imagen,$nombre,$precio,false]);
     }
         //agregar los libros al carrito
     public function getbook($id){
@@ -34,10 +34,10 @@ class Booksmodel{
         $libros = $query->fetch(PDO::FETCH_OBJ); // devuelve un objeto
         return $libros;
     }
-    public function updatebook($imagen,$nombre,$precio,$id){
+    public function updatebook($imagen,$nombre,$precio,$id_libro){
         //Metodo encargado de modificar un producto
         $query = $this->db->prepare("UPDATE  libros SET imagen=?,nombre = ?, precio = ? WHERE id_libro= ?");
-        $query->execute([$imagen,$nombre,$precio,$id]);
+        $query->execute([$id_libro,$imagen,$nombre,$precio]);
     }
     public function delete($id) {
         $query = $this->db->prepare('DELETE FROM libros WHERE id_libro = ?');

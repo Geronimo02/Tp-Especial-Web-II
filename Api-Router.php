@@ -11,6 +11,7 @@ $router->addRoute('libros', 'GET', 'booksController', 'Showbooks');
 $router->addRoute('libros/:ID', 'GET', 'booksController', 'getbook');
 $router->addRoute('libros/:ID', 'DELETE', 'booksController', 'deletebook');
 $router->addRoute('libros', 'POST', 'booksController', 'insertbook'); 
+$router->addRoute('libros/:ID', 'PUT', 'booksController', 'UpdateBook');
 
 
 
