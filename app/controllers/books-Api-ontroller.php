@@ -1,6 +1,7 @@
 <?php
-require_once './app/models/bookModel.php';
+require_once './app/models/book-Api-Model.php';
 require_once './app/view/ApiView.php';
+require_once './app/controllers/auth-Api-controller.php';
 
 class booksController{
     private $model;
@@ -55,13 +56,14 @@ class booksController{
 
          public function UpdateBook($params= null){
             $id = $params [':ID'];
-            $libros= $this ->model ->getbook($id);
-            if($libros){
-                $this ->model ->updateBook($id,$libros->id_libro,$libros->imagen,$libros->nombre,$libros->precio);
-                $this->view->response("el libro se modifico con exito", 200);
-            }else{
-                $this->view->response("el libro con la id=$id no existe",404);
-            }
+            $libro = $this->model->getbook($id);
+            $Newbook = $this->getData();
+             if($libro){
+                 $this->model->updateBook($Newbook->imagen, $Newbook->nombre, $Newbook->precio,$id);
+                 $this->view->response("el libro se modifico con exito", 200);
+             }else{
+                 $this->view->response("el libro con la id=$id no existe",404);
+             }
          }
      }
 

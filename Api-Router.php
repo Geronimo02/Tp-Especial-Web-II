@@ -1,7 +1,8 @@
 <?php
 require_once './libs/Router.php';
-require_once './app/controllers/books.controller.php';
-//require_once './app/controllers/cart.controller.php';
+require_once './app/controllers/books-Api-ontroller.php';
+require_once './app/controllers/auth-Api-controller.php';
+
 
 // crea el router
 $router = new Router();
@@ -13,7 +14,8 @@ $router->addRoute('libros/:ID', 'DELETE', 'booksController', 'deletebook');
 $router->addRoute('libros', 'POST', 'booksController', 'insertbook'); 
 $router->addRoute('libros/:ID', 'PUT', 'booksController', 'UpdateBook');
 
-
+//agrego el router 
+$router->addRoute("auth/token", 'GET', 'AuthApiController', 'getToken');
 
 // rutea
 $router->route($_GET["resource"], $_SERVER['REQUEST_METHOD']);
