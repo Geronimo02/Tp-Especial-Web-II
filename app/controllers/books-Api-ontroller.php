@@ -2,15 +2,18 @@
 require_once './app/models/book-Api-Model.php';
 require_once './app/view/ApiView.php';
 require_once './app/controllers/auth-Api-controller.php';
+require_once './app/helper/auth-Api-helper.php';
 
 class booksController{
     private $model;
     private $view;
     private $data;
+    private $authapiHelper;
 
     public function __construct(){
         $this->model = new Booksmodel();
         $this->view = new  ApiBooksview();
+        $this->authapiHelper = new AuthApiHelper();
         $this->data = file_get_contents("php://input"); 
     }
      private function getData() {
@@ -34,6 +37,12 @@ class booksController{
 
         public function deletebook($params = null) {
             $id = $params[':ID'];
+           
+            if(!$this->authapiHelper->isLoggedIn()){
+                $this->view->response("No estas logeado", 401);
+                return;
+            }
+    
             $libros = $this->model->getbook($id);
             if ($libros) {
                 $this->model->delete($id);
@@ -42,6 +51,12 @@ class booksController{
                 $this->view->response("el libro con el id=$id no existe", 404);
         }
         public function insertbook($params = null){
+           
+            if(!$this->authapiHelper->isLoggedIn()){
+                $this->view->response("No estas logeado", 401);
+                return;
+            }
+           
             $libros = $this->getData();
 
             if ( empty($libros->id_libro)|| empty($libros->imagen) || empty($libros->nombre) || empty($libros->precio)) {
@@ -56,6 +71,10 @@ class booksController{
 
          public function UpdateBook($params= null){
             $id = $params [':ID'];
+            if(!$this->authapiHelper->isLoggedIn()){
+                $this->view->response("No estas logeado", 401);
+                return;
+            }
             $libro = $this->model->getbook($id);
             $Newbook = $this->getData();
              if($libro){
