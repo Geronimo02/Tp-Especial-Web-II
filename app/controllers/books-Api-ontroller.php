@@ -15,23 +15,30 @@ class booksController{
      private function getData() {
         return json_decode($this->data);
     }
-    public function Showbooks() {
-    if (isset($_GET ['order']) && isset($_GET['sort'] ) ){
-             if(($_GET['sort']=="precio") || ($_GET['sort']=="PRECIO")){
-                 if (($_GET['order']=="ASC") || ($_GET['order']=="asc")){
-                     $libros = $this->model->Upward();
-                    
-                 }
-                 elseif (($_GET["order"]=="DESC") || ($_GET["order"]=="desc")){
-                     $libros = $this->model->falling();
-                     }
-                 }
-             }else{
-                $libros = $this->model->getlist();
+    //obtengo las listas de los libro y a su vez puedo ordenarlo de manece asd y desc y filtrarlo por precio
+    public function Showbooks(){
+        $libros = $this ->model ->getlist();
+        if (isset($_GET['order']) && isset($_GET['sort'])) {
+            if (($_GET['sort'] == "precio") || ($_GET['sort'] == "PRECIO")) {
+                if (($_GET['order'] == "ASC") || ($_GET['order'] == "asc")) {
+                    $libros = $this->model->Upward();
+                } elseif (($_GET["order"] == "DESC") || ($_GET["order"] == "desc")) {
+                    $libros = $this->model->falling();
+                } else {
+                    $libros = $this->model->getlist();
+                }
+            }
         }
-        $this->view->response($libros);
-}
-    
+        if (isset($_GET['filter'])) {
+            if (($_GET['filter'] == "precio")) {
+                $libros = $this->model->filtrado();
+            } else {
+                $libros = $this->model->getlist();
+            }
+        }
+        $libros = $this->view->response($libros, 200);
+    }
+ //obtengo un libro especifico llamandolo por id    
     public function getbook ($params = null) {
         //obtengo la id del arreglo de parametro
         $id = $params [':ID'];
@@ -42,15 +49,7 @@ class booksController{
             else
             $this->view->response('el libro ingresado no se encuentra disponible', 404);
         }
-        
-        public function GetFilter(){
-            $precio = $this ->model ->filtrado();
-            if ($precio){
-                $this ->view->response($precio,200);
-            }else{
-                $this ->view->response('los precios no estan disponibles',404);
-            }
-        }
+
         public function deletebook($params = null) {
             $id = $params[':ID'];
             $libros = $this->model->getbook($id);

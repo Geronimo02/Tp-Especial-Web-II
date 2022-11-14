@@ -47,8 +47,8 @@ class Booksmodel{
     public function filtrado(){
         $query = $this->db->prepare("SELECT precio FROM libros");
         $query->execute();
-        $precio = $query->fetchAll(PDO::FETCH_OBJ);
-        return $precio;
+        $libros = $query->fetchAll(PDO::FETCH_OBJ);
+        return $libros;
     }
     public function updatebook($imagen,$nombre,$precio,$id){
         //Metodo encargado de modificar un producto

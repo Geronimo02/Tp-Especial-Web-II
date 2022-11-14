@@ -5,11 +5,15 @@ require_once './app/controllers/books-Api-ontroller.php';
 $router = new Router();
 
 // define la tabla de ruteo
+//Trae todos los libros 
 $router->addRoute('libros', 'GET', 'booksController', 'Showbooks');
+//libros por id
 $router->addRoute('libros/:ID', 'GET', 'booksController', 'getbook');
-$router->addRoute('librosFiltrado', 'GET', 'booksController', 'GetFilter');
+//eliminar un libro
 $router->addRoute('libros/:ID', 'DELETE', 'booksController', 'deletebook');
+//insertbook
 $router->addRoute('libros', 'POST', 'booksController', 'insertbook'); 
+//modificar libro
 $router->addRoute('libros/:ID', 'PUT', 'booksController', 'UpdateBook');
 
 // rutea
